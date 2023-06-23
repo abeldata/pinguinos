@@ -5,19 +5,18 @@ import pickle
 from sklearn.ensemble import RandomForestClassifier
 
 st.write("""
-# Penguin Prediction App
-This app predicts the **Palmer Penguin** species!
-Data obtained from the [palmerpenguins library](https://github.com/allisonhorst/palmerpenguins) in R by Allison Horst.
+# Predictor de Pingúinos App
+Esta app predice las especies de  **Palmer Penguin** !
 """)
 
-st.sidebar.header('User Input Features')
+st.sidebar.header('Entrada de características')
 
 st.sidebar.markdown("""
-[Example CSV input file](https://github.com/abeldata/pinguinos/blob/master/penguins_example.csv)
+[Ejemplo de entrada por CSV](https://github.com/abeldata/pinguinos/blob/master/penguins_example.csv)
 """)
 
 # Collects user input features into dataframe
-uploaded_file = st.sidebar.file_uploader("Upload your input CSV file", type=["csv"])
+uploaded_file = st.sidebar.file_uploader("Sube tus entradas en un CSV file", type=["csv"])
 if uploaded_file is not None:
     input_df = pd.read_csv(uploaded_file)
 else:
@@ -55,12 +54,12 @@ for col in encode:
 df = df[:1] # Selects only the first row (the user input data)
 
 # Displays the user input features
-st.subheader('User Input features')
+st.subheader('Entrada de características')
 
 if uploaded_file is not None:
     st.write(df)
 else:
-    st.write('Awaiting CSV file to be uploaded. Currently using example input parameters (shown below).')
+    st.write('Esperando subida de CSV . ')
     st.write(df)
 
 # Reads in saved classification model
@@ -71,9 +70,9 @@ prediction = load_clf.predict(df)
 prediction_proba = load_clf.predict_proba(df)
 
 
-st.subheader('Prediction')
+st.subheader('Predicción')
 penguins_species = np.array(['Adelie','Chinstrap','Gentoo'])
 st.write(penguins_species[prediction])
 
-st.subheader('Prediction Probability')
+st.subheader('Probabilidad de la predicción')
 st.write(prediction_proba)
