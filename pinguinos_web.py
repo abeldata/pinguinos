@@ -5,7 +5,7 @@ import pickle
 from sklearn.ensemble import RandomForestClassifier
 
 st.write("""
-# Predictor de Pingúinos App
+# Predictór de Pingüinos App
 Esta app predice las especies de  **Palmer Penguin** !
 """)
 
