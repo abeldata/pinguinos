@@ -1,7 +1,7 @@
 # Penguins predictor: RandomForestClassifier
 
-Predictor del tipo de pingüino en función de diferentes variables usando un modelo de ensamblaje 
-
+Predictor del tipo de pingüino en función de diferentes variables usando un modelo de ensamblaje , 
+RandomForestClassifier
 
 ## Demo App
 
